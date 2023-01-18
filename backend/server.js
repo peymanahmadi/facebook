@@ -13,6 +13,7 @@ app.use(cors());
 readdirSync("./routes").map((r) => app.use("/", require("./routes/" + r)));
 
 // database
+mongoose.set("strictQuery", false);
 mongoose
   .connect(process.env.DATABASE_URL)
   .then(() => console.log("database connected successfully"))
